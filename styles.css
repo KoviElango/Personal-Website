@@ -1,13 +1,14 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #f0f0f0;
+    background: #f5f5f5;
+    color: #333;
 }
 
 header {
-    background: #333;
-    color: #fff;
+    background: #4CAF50;
+    color: white;
     text-align: center;
     padding: 1em 0;
 }
@@ -28,22 +29,22 @@ header p {
 }
 
 header a {
-    color: #1e90ff;
+    color: #FFC107;
     text-decoration: none;
 }
 
 #timeline {
     margin: 2em auto;
     width: 80%;
-    background: #fff;
     padding: 1em;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 #timeline h2 {
     text-align: center;
-    border-bottom: 2px solid #333;
     padding-bottom: 0.5em;
+    font-size: 2em;
+    color: #4CAF50;
 }
 
 .timeline-container {
@@ -62,41 +63,56 @@ header a {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: #333;
+    background: #4CAF50;
+    transform: translateX(-50%);
 }
 
 .timeline-item {
     margin: 1em 0;
+    padding: 1em 0;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.5s ease-out;
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-item.hidden {
+    opacity: 0;
+    transform: translateY(-50px);
 }
 
 .timeline-item h3 {
     margin: 0;
     font-size: 1.2em;
+    color: #4CAF50;
 }
 
 .timeline-item h4 {
     margin: 0.2em 0;
     font-size: 1em;
-    color: #555;
+    color: #777;
 }
 
 .timeline-item span {
     font-size: 0.9em;
-    color: #888;
+    color: #999;
 }
 
 #projects {
     margin: 2em auto;
     width: 80%;
-    background: #fff;
     padding: 1em;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #projects h2 {
     text-align: center;
-    border-bottom: 2px solid #333;
     padding-bottom: 0.5em;
+    font-size: 2em;
+    color: #4CAF50;
 }
 
 #projects ul {
@@ -106,16 +122,18 @@ header a {
 
 #projects li {
     margin: 1em 0;
+    padding: 1em 0;
 }
 
 #projects a {
-    color: #1e90ff;
+    color: #4CAF50;
     text-decoration: none;
+    font-weight: bold;
 }
 
 footer {
     text-align: center;
     padding: 1em 0;
-    background: #333;
-    color: #fff;
+    background: #4CAF50;
+    color: white;
 }
