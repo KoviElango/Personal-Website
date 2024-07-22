@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", function() {
     const timelineItemsLeft = document.querySelectorAll(".timeline-left .timeline-item");
     const timelineItemsRight = document.querySelectorAll(".timeline-right .timeline-item");
