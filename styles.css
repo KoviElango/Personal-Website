@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f0f0;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header h2 {
+    margin: 0.5em 0;
+    font-size: 1.5em;
+}
+
+header p {
+    margin: 0.5em 0;
+    font-size: 1em;
+}
+
+header a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+#timeline {
+    margin: 2em auto;
+    width: 80%;
+    background: #fff;
+    padding: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#timeline h2 {
+    text-align: center;
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5em;
+}
+
+.timeline-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.timeline-left, .timeline-right {
+    width: 45%;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #333;
+}
+
+.timeline-item {
+    margin: 1em 0;
+}
+
+.timeline-item h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.timeline-item h4 {
+    margin: 0.2em 0;
+    font-size: 1em;
+    color: #555;
+}
+
+.timeline-item span {
+    font-size: 0.9em;
+    color: #888;
+}
+
+#projects {
+    margin: 2em auto;
+    width: 80%;
+    background: #fff;
+    padding: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#projects h2 {
+    text-align: center;
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5em;
+}
+
+#projects ul {
+    list-style: none;
+    padding: 0;
+}
+
+#projects li {
+    margin: 1em 0;
+}
+
+#projects a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background: #333;
+    color: #fff;
+}
