@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
             removeStars();
             addClouds();
         } else { // Evening
-            gradient = "linear-gradient(to bottom, #FF4500, #F5AF07)";
+            gradient = "linear-gradient(to bottom, #FF4500, #F5A07)";
             textColor = "#FFFFFF";
             cardBackground = "rgba(139, 0, 0, 0.8)";
             cardTextColor = "#FFFFFF";
@@ -109,8 +109,6 @@ document.addEventListener("DOMContentLoaded", function() {
         for (let i = 0; i < 10; i++) {
             const cloud = document.createElement('div');
             cloud.classList.add('cloud');
-            cloud.style.width = `${60 + Math.random() * 100}px`;
-            cloud.style.height = `${30 + Math.random() * 50}px`;
             cloud.style.top = `${Math.random() * window.innerHeight * 0.5}px`;
             cloud.style.left = `${Math.random() * window.innerWidth}px`;
             document.body.appendChild(cloud);
