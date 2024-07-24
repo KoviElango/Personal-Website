@@ -4,13 +4,33 @@ body {
     padding: 0;
     background: #f5f5f5;
     color: #333;
+    cursor: none; /* Hide the default cursor */
 }
 
 header {
     background: #4CAF50;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+header .intro {
+    margin: 0;
+}
+
+header .business-card {
     padding: 20px;
+    background: white;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2); /* Perpendicular shadow */
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    perspective: 1000px;
 }
 
 header h1 {
@@ -18,15 +38,24 @@ header h1 {
     font-size: 50px;
 }
 
-header h2, header p {
+header h2, header p, header a {
     font-family: "M PLUS Code Latin", monospace;
     font-size: 20px;
 }
 
 header a {
-    font-family: "M PLUS Code Latin", monospace;
-    color: #FFC107;
+    color: #4CAF50;
     text-decoration: none;
+}
+
+#scroll-down {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    border: none;
+    cursor: pointer;
+    color: white;
 }
 
 #timeline, #projects {
@@ -34,6 +63,7 @@ header a {
     width: 80%;
     padding: 20px;
     position: relative;
+    z-index: 1;
 }
 
 h2 {
@@ -66,7 +96,7 @@ h2 {
 .timeline-item {
     margin: 20px 0;
     padding: 10px 0;
-    color: #d3d3d3;
+    color: #aaa;
     opacity: 0;
     transform: translateY(50px);
     transition: all 0.5s ease-out;
@@ -110,4 +140,20 @@ footer {
     padding: 20px;
     background: #4CAF50;
     color: white;
+    position: relative;
+    z-index: 1;
+}
+
+/* Custom cursor styles */
+.cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out, background-color 0.3s ease-out, opacity 0.3s ease-out;
+    z-index: 1000;
 }
