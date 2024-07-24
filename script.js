@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
 
-        businessCard.style.transform = `rotateY(${x * 0.05}deg) rotateX(${-y * 0.05}deg)`;
+        businessCard.style.transform = `rotateY(${x * 0.03}deg) rotateX(${-y * 0.03}deg)`;
         businessCard.style.boxShadow = `${x * 0.1}px ${y * 0.1}px 30px rgba(0, 0, 0, 0.2)`;
     });
 });
