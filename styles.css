@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #87CEFA, #00BFFF); /* Default to morning sky */
+    background: linear-gradient(to bottom, #87CEFA, #00BFFF);
     color: #333;
     transition: background 1s ease-in-out; /* Smooth transition for background changes */
 }
@@ -162,12 +162,17 @@ footer {
     background: white;
     border-radius: 50%;
     box-shadow: 0 0 10px white;
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
 }
 
 /* Clouds for day */
 .cloud {
     background-color: #fff;
-    background-image: -webkit-linear-gradient(hsla(0,0%,0%,0), hsla(0,0%,0%,.1));
     border-radius: 1em;
     box-shadow: inset 0 0 0 1px hsla(0,0%,100%,.5);
     display: inline-block;
@@ -178,6 +183,7 @@ footer {
     top: 50%;
     width: 3em;
     -webkit-filter: drop-shadow(0 2px 3px hsla(0,0%,0%,.25));
+    animation: moveClouds linear infinite;
 }
 .cloud:after,
 .cloud:before {
@@ -187,19 +193,26 @@ footer {
     position: absolute;
 }
 .cloud:after {
-    background-image: -webkit-linear-gradient(hsla(0,0%,0%,0) 50%, hsla(0,0%,0%,.025));
     height: 1em;
     right: .4em;
     top: -.5em;
     width: 1em;
 }
 .cloud:before {
-    background-image: -webkit-linear-gradient(hsla(0,0%,0%,0) 50%, hsla(0,0%,0%,.075));
     height: 1.6em;
     left: .4em;
     top: -.75em;
     width: 1.6em;
-}​
+}
+
+@keyframes moveClouds {
+    0% {
+        transform: translateX(-200px);
+    }
+    100% {
+        transform: translateX(100vw);
+    }
+}
 
 /* Highlight classes for different times of day */
 .highlight-morning:hover {

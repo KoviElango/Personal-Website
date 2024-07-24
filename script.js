@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
             removeStars();
             addClouds();
         } else if (hours >= 12 && hours < 18) { // Afternoon
-            gradient = "linear-gradient(to bottom, #FFA07A, #F14500)";
+            gradient = "linear-gradient(to bottom, #FFA07A, #FF4500)";
             textColor = "#000000";
             cardBackground = "rgba(255, 160, 122, 0.8)";
             cardTextColor = "#000000";
@@ -67,9 +67,9 @@ document.addEventListener("DOMContentLoaded", function() {
             removeStars();
             addClouds();
         } else { // Evening
-            gradient = "linear-gradient(to bottom, #FF4500, #F5A07)";
+            gradient = "linear-gradient(to bottom, #FF4500, #FFD700)"; // Orange to Yellow gradient
             textColor = "#FFFFFF";
-            cardBackground = "rgba(139, 0, 0, 0.8)";
+            cardBackground = "rgba(255, 69, 0, 0.8)";
             cardTextColor = "#FFFFFF";
             highlightClass = "highlight-evening";
             removeStars();
