@@ -40,6 +40,7 @@ header h1 {
 header h2, header p, header a {
     font-family: "M PLUS Code Latin", monospace;
     font-size: 20px;
+    transition: color 0.5s ease-in-out;
 }
 
 header a {
@@ -188,18 +189,19 @@ footer {
     left: -20px;
 }
 
-/* Hover highlight effect */
-.highlight-gold:hover {
-    background: #FFD700; /* Gold color for black background */
-    transition: background 0.3s ease-in-out;
+/* Highlight classes for different times of day */
+.highlight-morning:hover {
+    color: darkgreen;
 }
 
-.highlight-dark-green:hover {
-    background: #006400; /* Dark green color for blue background */
-    transition: background 0.3s ease-in-out;
+.highlight-afternoon:hover {
+    color: red;
 }
 
-.highlight-red:hover {
-    background: #FF4500; /* Red color for orange background */
-    transition: background 0.3s ease-in-out;
+.highlight-evening:hover {
+    color: red;
+}
+
+.highlight-night:hover {
+    color: gold;
 }
