@@ -2,13 +2,12 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #f5f5f5;
+    background: linear-gradient(to bottom, #87CEFA, #00BFFF); /* Default to morning sky */
     color: #333;
-    cursor: none; /* Hide the default cursor */
+    transition: background 1s ease-in-out; /* Smooth transition for background changes */
 }
 
 header {
-    background: #4CAF50;
     color: white;
     display: flex;
     justify-content: center;
@@ -25,11 +24,11 @@ header .intro {
 
 header .business-card {
     padding: 20px;
-    background: white;
+    background: rgba(255, 255, 255, 0.8); /* Default light background */
     color: #333;
     border-radius: 8px;
-    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2); /* Perpendicular shadow */
-    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background 1s ease-in-out, color 1s ease-in-out;
     perspective: 1000px;
 }
 
@@ -44,18 +43,23 @@ header h2, header p, header a {
 }
 
 header a {
-    color: #4CAF50;
+    color: #FFD700; /* Gold color for links */
     text-decoration: none;
 }
 
 #scroll-down {
     margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    border: none;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid #FFD700; /* Gold color for arrow */
     cursor: pointer;
-    color: white;
+    transition: transform 0.2s ease;
+}
+
+#scroll-down:hover {
+    transform: translateY(5px);
 }
 
 #timeline, #projects {
@@ -69,7 +73,7 @@ header a {
 h2 {
     font-family: "M PLUS Code Latin", monospace;
     text-align: center;
-    color: #000000;
+    color: #333;
 }
 
 .timeline-container {
@@ -89,14 +93,14 @@ h2 {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: #4CAF50;
+    background: #FFD700; /* Gold color for the line */
     transform: translateX(-50%);
 }
 
 .timeline-item {
     margin: 20px 0;
     padding: 10px 0;
-    color: #aaa;
+    color: #FFF;
     opacity: 0;
     transform: translateY(50px);
     transition: all 0.5s ease-out;
@@ -117,7 +121,7 @@ h2 {
 }
 
 .timeline-item:hover {
-    color: #000;
+    color: #FFD700; /* Gold color on hover */
 }
 
 #projects ul {
@@ -130,7 +134,7 @@ h2 {
 }
 
 #projects a {
-    color: #4CAF50;
+    color: #FFD700; /* Gold color for links */
     text-decoration: none;
     font-weight: bold;
 }
@@ -138,22 +142,64 @@ h2 {
 footer {
     text-align: center;
     padding: 20px;
-    background: #4CAF50;
+    background: rgba(0, 0, 0, 0.7);
     color: white;
     position: relative;
     z-index: 1;
 }
 
-/* Custom cursor styles */
-.cursor {
-    position: fixed;
-    width: 20px;
-    height: 20px;
+/* Stars for night */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.7);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease-out, background-color 0.3s ease-out, opacity 0.3s ease-out;
-    z-index: 1000;
+    box-shadow: 0 0 10px white;
+}
+
+/* Clouds for day */
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+.cloud:before, .cloud:after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+.cloud:before {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 10px;
+}
+
+.cloud:after {
+    width: 80px;
+    height: 80px;
+    top: -40px;
+    left: -20px;
+}
+
+/* Hover highlight effect */
+.highlight-gold:hover {
+    background: #FFD700; /* Gold color for black background */
+    transition: background 0.3s ease-in-out;
+}
+
+.highlight-dark-green:hover {
+    background: #006400; /* Dark green color for blue background */
+    transition: background 0.3s ease-in-out;
+}
+
+.highlight-red:hover {
+    background: #FF4500; /* Red color for orange background */
+    transition: background 0.3s ease-in-out;
 }
