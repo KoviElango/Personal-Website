@@ -28,13 +28,14 @@ header .business-card {
     color: #333;
     border-radius: 8px;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
-    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background 1s ease-in-out, color 1s ease-in-out;
+    transition: transform 0.4s ease-out, box-shadow 0.2s ease-out, background 1s ease-in-out, color 1s ease-in-out;
     perspective: 1000px;
 }
 
 header h1 {
     font-family: "Major Mono Display", monospace;
     font-size: 50px;
+    transition: color 0.5s ease-in-out;
 }
 
 header h2, header p, header a {
@@ -75,6 +76,7 @@ h2 {
     font-family: "M PLUS Code Latin", monospace;
     text-align: center;
     color: #333;
+    transition: color 0.5s ease-in-out;
 }
 
 .timeline-container {
@@ -104,11 +106,12 @@ h2 {
     color: #FFF;
     opacity: 0;
     transform: translateY(50px);
-    transition: all 0.5s ease-out;
+    transition: all 1s ease-in-out;
 }
 
 .timeline-item h3, .timeline-item h4, .timeline-item span {
     color: inherit;
+    transition: color 0.5s ease-in-out;
 }
 
 .timeline-item.visible {
@@ -123,6 +126,7 @@ h2 {
 
 .timeline-item:hover {
     color: #FFD700; /* Gold color on hover */
+    transition: color 0.5s ease-in-out;
 }
 
 #projects ul {
@@ -138,6 +142,7 @@ h2 {
     color: #FFD700; /* Gold color for links */
     text-decoration: none;
     font-weight: bold;
+    transition: color 1s ease-in-out;
 }
 
 footer {
@@ -191,17 +196,17 @@ footer {
 
 /* Highlight classes for different times of day */
 .highlight-morning:hover {
-    color: darkgreen;
+    color: darkgreen !important;
 }
 
 .highlight-afternoon:hover {
-    color: red;
+    color: red !important;
 }
 
 .highlight-evening:hover {
-    color: red;
+    color: red !important;
 }
 
 .highlight-night:hover {
-    color: gold;
+    color: gold !important;
 }
