@@ -97,6 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
             star.classList.add('star');
             star.style.top = `${Math.random() * window.innerHeight}px`;
             star.style.left = `${Math.random() * window.innerWidth}px`;
+            star.style.animationDelay = `${Math.random() * 2}s`;
             document.body.appendChild(star);
         }
     }

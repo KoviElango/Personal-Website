@@ -154,7 +154,6 @@ footer {
     z-index: 1;
 }
 
-/* Stars for night */
 .star {
     position: absolute;
     width: 2px;
@@ -162,7 +161,7 @@ footer {
     background: white;
     border-radius: 50%;
     box-shadow: 0 0 10px white;
-    animation: twinkle 2s infinite alternate;
+    animation: twinkle 0.5s infinite alternate;
 }
 
 @keyframes twinkle {
