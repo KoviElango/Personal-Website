@@ -132,18 +132,43 @@ h2 {
 #projects ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 #projects li {
-    margin: 20px 0;
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #FFD700; /* Gold outline */
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: calc(45% - 40px); /* Adjust based on desired size */
+}
+
+#projects li:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 10px 5px #FFD700; /* Gold glow on hover */
 }
 
 #projects a {
-    color: #FFD700; /* Gold color for links */
+    color: #333;
     text-decoration: none;
     font-weight: bold;
-    transition: color 1s ease-in-out;
+    display: block;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
 }
+
+#projects p {
+    color: #666;
+}
+
+#projects li:hover a {
+    color: #FFD700; /* Gold color for hover */
+}
+
+
 
 footer {
     text-align: center;
