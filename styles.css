@@ -1,5 +1,16 @@
+:root {
+    --main-font: 'Source Code Pro', monospace;
+    --header-font-size: 50px;
+    --text-font-size: 20px;
+    --link-color: #FFD700;
+    --hover-morning: darkgreen;
+    --hover-afternoon: red;
+    --hover-evening: rgb(39, 0, 23);
+    --hover-night: gold;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--main-font);
     margin: 0;
     padding: 0;
     background: linear-gradient(to bottom, #87CEFA, #00BFFF);
@@ -33,19 +44,17 @@ header .business-card {
 }
 
 header h1 {
-    font-family: "Major Mono Display", monospace;
-    font-size: 50px;
+    font-size: var(--header-font-size);
     transition: color 0.5s ease-in-out;
 }
 
 header h2, header p, header a {
-    font-family: "M PLUS Code Latin", monospace;
-    font-size: 20px;
+    font-size: var(--text-font-size);
     transition: color 0.5s ease-in-out;
 }
 
 header a {
-    color: #FFD700; /* Gold color for links */
+    color: var(--link-color); /* Gold color for links */
     text-decoration: none;
 }
 
@@ -55,7 +64,7 @@ header a {
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 15px solid #FFD700; /* Gold color for arrow */
+    border-top: 15px solid var(--link-color); /* Gold color for arrow */
     cursor: pointer;
     transition: transform 0.2s ease;
 }
@@ -73,14 +82,12 @@ header a {
 }
 
 h2 {
-    font-family: "M PLUS Code Latin", monospace;
     text-align: center;
     color: #333;
     transition: color 0.5s ease-in-out;
 }
 
 .timeline-container {
-    font-family: "M PLUS Code Latin", monospace;
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -96,7 +103,7 @@ h2 {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: #FFD700; /* Gold color for the line */
+    background: var(--link-color);
     transform: translateX(-50%);
 }
 
@@ -125,7 +132,7 @@ h2 {
 }
 
 .timeline-item:hover {
-    color: #FFD700; /* Gold color on hover */
+    color: var(--link-color); /* Gold color on hover */
     transition: color 0.5s ease-in-out;
 }
 
@@ -140,15 +147,15 @@ h2 {
 #projects li {
     margin: 20px;
     padding: 20px;
-    border: 2px solid #FFD700; /* Gold outline */
+    border: 2px solid var(--link-color);
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: calc(45% - 40px); /* Adjust based on desired size */
+    width: calc(45% - 40px);
 }
 
 #projects li:hover {
     transform: translateY(-10px);
-    box-shadow: 0 0 10px 5px #FFD700; /* Gold glow on hover */
+    box-shadow: 0 0 10px 5px var(--link-color); 
 }
 
 #projects a {
@@ -165,10 +172,8 @@ h2 {
 }
 
 #projects li:hover a {
-    color: #FFD700; /* Gold color for hover */
+    color: var(--link-color); /* Gold color for hover */
 }
-
-
 
 footer {
     text-align: center;
@@ -240,17 +245,17 @@ footer {
 
 /* Highlight classes for different times of day */
 .highlight-morning:hover {
-    color: darkgreen !important;
+    color: var(--hover-morning) !important;
 }
 
 .highlight-afternoon:hover {
-    color: red !important;
+    color: var(--hover-afternoon) !important;
 }
 
 .highlight-evening:hover {
-    color: rgb(39, 0, 23) !important;
+    color: var(--hover-evening) !important;
 }
 
 .highlight-night:hover {
-    color: gold !important;
+    color: var(--hover-night) !important;
 }
