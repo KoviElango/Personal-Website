@@ -27,11 +27,9 @@ header {
     text-align: center;
     position: relative;
     z-index: 1;
+    background: url('/mnt/data/image.png') no-repeat center center/cover; /* Replace with the path to your image */
 }
 
-header .intro {
-    margin: 0;
-}
 
 header .business-card {
     padding: 20px;
@@ -41,21 +39,32 @@ header .business-card {
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
     transition: transform 0.4s ease-out, box-shadow 0.2s ease-out, background 1s ease-in-out, color 1s ease-in-out;
     perspective: 1000px;
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-header h1 {
-    font-size: var(--header-font-size);
-    transition: color 0.5s ease-in-out;
-}
-
-header h2, header p, header a {
-    font-size: var(--text-font-size);
+header h1, header h2, header p, header a {
+    font-family: var(--main-font);
     transition: color 0.5s ease-in-out;
 }
 
 header a {
     color: var(--link-color); /* Gold color for links */
     text-decoration: none;
+}
+.social-icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
 }
 
 #scroll-down {
