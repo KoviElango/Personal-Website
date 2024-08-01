@@ -1,70 +1,60 @@
-:root {
-    --main-font: 'Source Code Pro', monospace;
-    --header-font-size: 50px;
-    --text-font-size: 20px;
-    --link-color: #FFD700;
-    --hover-morning: darkgreen;
-    --hover-afternoon: red;
-    --hover-evening: rgb(39, 0, 23);
-    --hover-night: gold;
+html {
+    height: 100%;
 }
 
 body {
-    font-family: var(--main-font);
+    background: linear-gradient(to bottom, #660F56 6%, #AE2D68 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: 'Source Code Pro', monospace;
+    color: white;
+    font-weight: 100;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #87CEFA, #00BFFF);
-    color: #333;
     transition: background 1s ease-in-out; /* Smooth transition for background changes */
 }
 
-header {
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
+.wrapper {
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.wrapper h1 {
+    font-size: 50px;
+    margin-top: 0;
+}
+
+.wrapper h3 {
+    margin-bottom: 0;
+}
+
+.wrapper span {
+    display: inline-block;
+    text-align: left;
+    font-size: 26px;
+}
+
+.wrapper .cursor {
+    font-size: 35px;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+
+.wrapper .social {
     position: relative;
-    z-index: 1;
-    background: url('/mnt/data/image.png') no-repeat center center/cover; /* Replace with the path to your image */
+    margin-top: 50px;
 }
 
-
-header .business-card {
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.8); /* Default light background */
-    color: #333;
-    border-radius: 8px;
-    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
-    transition: transform 0.4s ease-out, box-shadow 0.2s ease-out, background 1s ease-in-out, color 1s ease-in-out;
-    perspective: 1000px;
-    text-align: center;
-    width: 300px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.wrapper .social i {
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 50%;
 }
 
-header h1, header h2, header p, header a {
-    font-family: var(--main-font);
-    transition: color 0.5s ease-in-out;
-}
-
-header a {
-    color: var(--link-color); /* Gold color for links */
-    text-decoration: none;
-}
-.social-icon {
-    width: 30px;
-    height: 30px;
-    margin: 0 10px;
-    transition: transform 0.3s ease;
-}
-
-.social-icon:hover {
-    transform: scale(1.2);
+.wrapper .social a {
+    color: white;
+    margin: 20px;
 }
 
 #scroll-down {
@@ -82,17 +72,63 @@ header a {
     transform: translateY(5px);
 }
 
+@media (max-width: 768px) {
+    .wrapper h1 {
+        font-size: 34px;
+    }
+
+    .wrapper h3 {
+        font-size: 28px;
+    }
+
+    .wrapper span {
+        font-size: 22px;
+    }
+
+    .wrapper .social i {
+        font-size: 22px;
+    }
+
+    .wrapper .social a {
+        margin: 5px;
+    }
+
+    .wrapper .social {
+        text-align: center;
+    }
+}
+
+@keyframes blink {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@-webkit-keyframes blink {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@-moz-keyframes blink {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+/* Timeline and Projects Styles */
 #timeline, #projects {
     margin: 40px auto;
     width: 80%;
     padding: 20px;
     position: relative;
     z-index: 1;
+    color: #FFF;
 }
 
 h2 {
     text-align: center;
-    color: #333;
+    color: #FFF;
     transition: color 0.5s ease-in-out;
 }
 
@@ -112,7 +148,7 @@ h2 {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: var(--link-color);
+    background: #F54952;
     transform: translateX(-50%);
 }
 
@@ -141,11 +177,11 @@ h2 {
 }
 
 .timeline-item:hover {
-    color: var(--link-color); /* Gold color on hover */
+    color: #ff7e84;
     transition: color 0.5s ease-in-out;
 }
 
-#projects ul {
+.projects-list {
     list-style: none;
     padding: 0;
     display: flex;
@@ -153,22 +189,23 @@ h2 {
     justify-content: space-around;
 }
 
-#projects li {
+.project-item {
     margin: 20px;
     padding: 20px;
-    border: 2px solid var(--link-color);
+    border: 2px solid #F54952;
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     width: calc(45% - 40px);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
-#projects li:hover {
+.project-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 0 10px 5px var(--link-color); 
+    box-shadow: 0 0 10px 5px #F54952; 
 }
 
-#projects a {
-    color: #333;
+.project-item a {
+    color: #F54952;
     text-decoration: none;
     font-weight: bold;
     display: block;
@@ -176,12 +213,8 @@ h2 {
     transition: color 0.3s ease;
 }
 
-#projects p {
-    color: #666;
-}
-
-#projects li:hover a {
-    color: var(--link-color); /* Gold color for hover */
+.project-item p {
+    color: #DDD;
 }
 
 footer {
@@ -208,63 +241,12 @@ footer {
     100% { opacity: 1; }
 }
 
-/* Clouds for day */
-.cloud {
-    background-color: #fff;
-    border-radius: 1em;
-    box-shadow: inset 0 0 0 1px hsla(0,0%,100%,.5);
-    display: inline-block;
-    height: 1em;
-    left: 50%;
-    margin-left: -1.5em;
-    position: absolute;
-    top: 50%;
-    width: 3em;
-    -webkit-filter: drop-shadow(0 2px 3px hsla(0,0%,0%,.25));
-    animation: moveClouds linear infinite;
-}
-.cloud:after,
-.cloud:before {
-    background-color: #fff;
-    content: '';
-    border-radius: 100%;
-    position: absolute;
-}
-.cloud:after {
-    height: 1em;
-    right: .4em;
-    top: -.5em;
-    width: 1em;
-}
-.cloud:before {
-    height: 1.6em;
-    left: .4em;
-    top: -.75em;
-    width: 1.6em;
+@-webkit-keyframes twinkle {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
 }
 
-@keyframes moveClouds {
-    0% {
-        transform: translateX(-200px);
-    }
-    100% {
-        transform: translateX(100vw);
-    }
-}
-
-/* Highlight classes for different times of day */
-.highlight-morning:hover {
-    color: var(--hover-morning) !important;
-}
-
-.highlight-afternoon:hover {
-    color: var(--hover-afternoon) !important;
-}
-
-.highlight-evening:hover {
-    color: var(--hover-evening) !important;
-}
-
-.highlight-night:hover {
-    color: var(--hover-night) !important;
+@-moz-keyframes twinkle {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
 }
