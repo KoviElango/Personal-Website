@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
     var message = {
         message: [
-            'making mobile apps;', 
-            'Robots and anime;', 
-            'Astronomy;', 
+            'Making Mobile Apps;', 
+            'Robotics and Autonomous Vehicles;', 
+            'Astronomy and Anime;', 
             'Python, Kotlin and React...;',
             'கொத்து பரோட்டா;'
         ],
