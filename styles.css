@@ -1,5 +1,6 @@
 html {
     height: 100%;
+    font-size: 16px; /* Base font size for rem units */
 }
 
 body {
@@ -20,23 +21,23 @@ body {
 }
 
 .wrapper h1 {
-    font-size: 3.125rem; /* 50px */
+    font-size: 3rem; /* Consistent with 48px */
     margin-top: 0;
 }
 
 .wrapper h3 {
+    font-size: 2rem; /* Consistent with 32px */
     margin-bottom: 0;
-    font-size: 1.75rem; /* 28px */
 }
 
 .wrapper span {
     display: inline-block;
     text-align: left;
-    font-size: 1.625rem; /* 26px */
+    font-size: 1.5rem; /* Consistent with 24px */
 }
 
 .wrapper .cursor {
-    font-size: 2.1875rem; /* 35px */
+    font-size: 1.5rem; /* Consistent with 24px */
     -webkit-animation: blink 0.7s infinite;
     -moz-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
@@ -45,7 +46,7 @@ body {
 .wrapper .social {
     position: relative;
     margin-top: 3.125rem; /* 50px */
-    margin-bottom: 25rem; /* 400px */
+    margin-bottom: 6.25rem; /* 100px */
 }
 
 .wrapper .social i {
@@ -76,19 +77,19 @@ body {
 
 @media (max-width: 768px) {
     .wrapper h1 {
-        font-size: 2.125rem; /* 34px */
+        font-size: 2rem; /* 32px */
     }
 
     .wrapper h3 {
-        font-size: 1.75rem; /* 28px */
+        font-size: 1.5rem; /* 24px */
     }
 
     .wrapper span {
-        font-size: 1.375rem; /* 22px */
+        font-size: 1.25rem; /* 20px */
     }
 
     .wrapper .social i {
-        font-size: 1.375rem; /* 22px */
+        font-size: 1.25rem; /* 20px */
     }
 
     .wrapper .social a {
@@ -101,18 +102,6 @@ body {
 }
 
 @keyframes blink {
-    0% {opacity: 1;}
-    50% {opacity: 0;}
-    100% {opacity: 1;}
-}
-
-@-webkit-keyframes blink {
-    0% {opacity: 1;}
-    50% {opacity: 0;}
-    100% {opacity: 1;}
-}
-
-@-moz-keyframes blink {
     0% {opacity: 1;}
     50% {opacity: 0;}
     100% {opacity: 1;}
@@ -132,7 +121,7 @@ h2 {
     text-align: center;
     color: #FFF;
     transition: color 0.5s ease-in-out;
-    font-size: 1.5rem; /* 24px */
+    font-size: 2rem; /* 32px */
 }
 
 .timeline-container {
@@ -167,6 +156,7 @@ h2 {
 .timeline-item h3, .timeline-item h4, .timeline-item span {
     color: inherit;
     transition: color 0.5s ease-in-out;
+    font-size: 1.25rem; /* 20px */
 }
 
 .timeline-item.visible {
@@ -214,12 +204,12 @@ h2 {
     display: block;
     margin-bottom: 0.625rem; /* 10px */
     transition: color 0.3s ease;
-    font-size: 1rem; /* 16px */
+    font-size: 1.25rem; /* 20px */
 }
 
 .project-item p {
     color: #DDD;
-    font-size: 0.875rem; /* 14px */
+    font-size: 1rem; /* 16px */
 }
 
 footer {
@@ -229,5 +219,5 @@ footer {
     color: white;
     position: relative;
     z-index: 1;
-    font-size: 1rem; /* 16px */
+    font-size: 1.25rem; /* 20px */
 }
