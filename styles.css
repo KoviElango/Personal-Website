@@ -1,6 +1,6 @@
 html {
     height: 100%;
-    font-size: 16px; /* Base font size for rem units */
+    font-size: 17px; /* Base font size for rem units */
 }
 
 body {
@@ -12,7 +12,6 @@ body {
     font-weight: 100;
     margin: 0;
     padding: 0;
-    transition: background 1s ease-in-out; /* Smooth transition for background changes */
 }
 
 .wrapper {
@@ -21,23 +20,23 @@ body {
 }
 
 .wrapper h1 {
-    font-size: 3rem; /* Consistent with 48px */
+    font-size: 3rem; 
     margin-top: 0;
 }
 
 .wrapper h3 {
-    font-size: 2rem; /* Consistent with 32px */
+    font-size: 2rem; 
     margin-bottom: 0;
 }
 
 .wrapper span {
     display: inline-block;
     text-align: left;
-    font-size: 1.5rem; /* Consistent with 24px */
+    font-size: 1.5rem; 
 }
 
 .wrapper .cursor {
-    font-size: 1.5rem; /* Consistent with 24px */
+    font-size: 1.5rem;
     -webkit-animation: blink 0.7s infinite;
     -moz-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
@@ -45,55 +44,55 @@ body {
 
 .wrapper .social {
     position: relative;
-    margin-top: 3.125rem; /* 50px */
-    margin-bottom: 6.25rem; /* 100px */
+    margin-top: 3.125rem; 
+    margin-bottom: 20rem; 
 }
 
 .wrapper .social i {
-    padding: 0.625rem; /* 10px */
+    padding: 0.625rem; 
     border: 2px solid white;
-    border-radius: 50%;
+    border-radius: 70%;
 }
 
 .wrapper .social a {
     color: white;
-    margin: 1.25rem; /* 20px */
+    margin: 1.25rem; 
 }
 
 #scroll-down {
-    margin-top: 1.25rem; /* 20px */
+    margin-top: 1.25rem;
     width: 0;
     height: 0;
-    border-left: 0.625rem solid transparent; /* 10px */
-    border-right: 0.625rem solid transparent; /* 10px */
-    border-top: 0.9375rem solid var(--link-color); /* 15px, Gold color for arrow */
+    border-left: 0.625rem solid transparent; 
+    border-right: 0.625rem solid transparent;
+    border-top: 0.9375rem solid var(--link-color); 
     cursor: pointer;
     transition: transform 0.2s ease;
 }
 
 #scroll-down:hover {
-    transform: translateY(0.3125rem); /* 5px */
+    transform: translateY(0.3125rem); 
 }
 
 @media (max-width: 768px) {
     .wrapper h1 {
-        font-size: 2rem; /* 32px */
+        font-size: 2rem;
     }
 
     .wrapper h3 {
-        font-size: 1.5rem; /* 24px */
+        font-size: 1.5rem;
     }
 
     .wrapper span {
-        font-size: 1.25rem; /* 20px */
+        font-size: 1.25rem;
     }
 
     .wrapper .social i {
-        font-size: 1.25rem; /* 20px */
+        font-size: 1.25rem; 
     }
 
     .wrapper .social a {
-        margin: 0.3125rem; /* 5px */
+        margin: 0.3125rem; 
     }
 
     .wrapper .social {
@@ -109,9 +108,9 @@ body {
 
 /* Timeline and Projects Styles */
 #timeline, #projects {
-    margin: 2.5rem auto; /* 40px */
+    margin: 2.5rem auto; 
     width: 80%;
-    padding: 1.25rem; /* 20px */
+    padding: 1.25rem;
     position: relative;
     z-index: 1;
     color: #FFF;
@@ -121,7 +120,7 @@ h2 {
     text-align: center;
     color: #FFF;
     transition: color 0.5s ease-in-out;
-    font-size: 2rem; /* 32px */
+    font-size: 2rem; 
 }
 
 .timeline-container {
@@ -139,24 +138,24 @@ h2 {
     left: 50%;
     top: 0;
     bottom: 0;
-    width: 0.125rem; /* 2px */
+    width: 0.125rem; 
     background: #F54952;
     transform: translateX(-50%);
 }
 
 .timeline-item {
-    margin: 1.25rem 0; /* 20px */
-    padding: 0.625rem 0; /* 10px */
+    margin: 1.25rem 0; 
+    padding: 0.625rem 0; 
     color: #FFF;
     opacity: 0;
-    transform: translateY(3.125rem); /* 50px */
+    transform: translateY(3.125rem);
     transition: all 1s ease-in-out;
 }
 
 .timeline-item h3, .timeline-item h4, .timeline-item span {
     color: inherit;
     transition: color 0.5s ease-in-out;
-    font-size: 1.25rem; /* 20px */
+    font-size: 1.25rem; 
 }
 
 .timeline-item.visible {
@@ -166,7 +165,7 @@ h2 {
 
 .timeline-item.hidden {
     opacity: 0;
-    transform: translateY(-3.125rem); /* 50px */
+    transform: translateY(-3.125rem); 
 }
 
 .timeline-item:hover {
@@ -183,18 +182,18 @@ h2 {
 }
 
 .project-item {
-    margin: 1.25rem; /* 20px */
-    padding: 1.25rem; /* 20px */
+    margin: 1.25rem; 
+    padding: 1.25rem; 
     border: 2px solid #F54952;
-    border-radius: 0.5rem; /* 8px */
+    border-radius: 0.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: calc(45% - 2.5rem); /* 40px */
+    width: calc(45% - 2.5rem); 
     background-color: rgba(0, 0, 0, 0.7);
 }
 
 .project-item:hover {
-    transform: translateY(-0.625rem); /* 10px */
-    box-shadow: 0 0 0.625rem 0.3125rem #F54952; /* 10px 5px */
+    transform: translateY(-0.625rem);
+    box-shadow: 0 0 0.625rem 0.3125rem #F54952;
 }
 
 .project-item a {
@@ -202,22 +201,22 @@ h2 {
     text-decoration: none;
     font-weight: bold;
     display: block;
-    margin-bottom: 0.625rem; /* 10px */
+    margin-bottom: 0.625rem; 
     transition: color 0.3s ease;
-    font-size: 1.25rem; /* 20px */
+    font-size: 1.25rem; 
 }
 
 .project-item p {
     color: #DDD;
-    font-size: 1rem; /* 16px */
+    font-size: 1rem;
 }
 
 footer {
     text-align: center;
-    padding: 1.25rem; /* 20px */
+    padding: 0.8rem;
     background: rgba(0, 0, 0, 0.7);
     color: white;
     position: relative;
     z-index: 1;
-    font-size: 1.25rem; /* 20px */
+    font-size: 0.8rem;
 }
