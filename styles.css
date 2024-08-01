@@ -20,22 +20,23 @@ body {
 }
 
 .wrapper h1 {
-    font-size: 50px;
+    font-size: 3.125rem; /* 50px */
     margin-top: 0;
 }
 
 .wrapper h3 {
     margin-bottom: 0;
+    font-size: 1.75rem; /* 28px */
 }
 
 .wrapper span {
     display: inline-block;
     text-align: left;
-    font-size: 26px;
+    font-size: 1.625rem; /* 26px */
 }
 
 .wrapper .cursor {
-    font-size: 35px;
+    font-size: 2.1875rem; /* 35px */
     -webkit-animation: blink 0.7s infinite;
     -moz-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
@@ -43,54 +44,55 @@ body {
 
 .wrapper .social {
     position: relative;
-    margin-top: 50px;
+    margin-top: 3.125rem; /* 50px */
+    margin-bottom: 25rem; /* 400px */
 }
 
 .wrapper .social i {
-    padding: 10px;
+    padding: 0.625rem; /* 10px */
     border: 2px solid white;
     border-radius: 50%;
 }
 
 .wrapper .social a {
     color: white;
-    margin: 20px;
+    margin: 1.25rem; /* 20px */
 }
 
 #scroll-down {
-    margin-top: 20px;
+    margin-top: 1.25rem; /* 20px */
     width: 0;
     height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 15px solid var(--link-color); /* Gold color for arrow */
+    border-left: 0.625rem solid transparent; /* 10px */
+    border-right: 0.625rem solid transparent; /* 10px */
+    border-top: 0.9375rem solid var(--link-color); /* 15px, Gold color for arrow */
     cursor: pointer;
     transition: transform 0.2s ease;
 }
 
 #scroll-down:hover {
-    transform: translateY(5px);
+    transform: translateY(0.3125rem); /* 5px */
 }
 
 @media (max-width: 768px) {
     .wrapper h1 {
-        font-size: 34px;
+        font-size: 2.125rem; /* 34px */
     }
 
     .wrapper h3 {
-        font-size: 28px;
+        font-size: 1.75rem; /* 28px */
     }
 
     .wrapper span {
-        font-size: 22px;
+        font-size: 1.375rem; /* 22px */
     }
 
     .wrapper .social i {
-        font-size: 22px;
+        font-size: 1.375rem; /* 22px */
     }
 
     .wrapper .social a {
-        margin: 5px;
+        margin: 0.3125rem; /* 5px */
     }
 
     .wrapper .social {
@@ -117,19 +119,20 @@ body {
 }
 
 /* Timeline and Projects Styles */
-.wrapper .social {
-    position: relative;
-    margin-top: 50px;
-    margin-bottom: 100px; /* Add margin-bottom for space */
-}
-
 #timeline, #projects {
-    margin: 40px auto;
+    margin: 2.5rem auto; /* 40px */
     width: 80%;
-    padding: 20px;
+    padding: 1.25rem; /* 20px */
     position: relative;
     z-index: 1;
     color: #FFF;
+}
+
+h2 {
+    text-align: center;
+    color: #FFF;
+    transition: color 0.5s ease-in-out;
+    font-size: 1.5rem; /* 24px */
 }
 
 .timeline-container {
@@ -147,17 +150,17 @@ body {
     left: 50%;
     top: 0;
     bottom: 0;
-    width: 2px;
+    width: 0.125rem; /* 2px */
     background: #F54952;
     transform: translateX(-50%);
 }
 
 .timeline-item {
-    margin: 20px 0;
-    padding: 10px 0;
+    margin: 1.25rem 0; /* 20px */
+    padding: 0.625rem 0; /* 10px */
     color: #FFF;
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(3.125rem); /* 50px */
     transition: all 1s ease-in-out;
 }
 
@@ -173,7 +176,7 @@ body {
 
 .timeline-item.hidden {
     opacity: 0;
-    transform: translateY(-50px);
+    transform: translateY(-3.125rem); /* 50px */
 }
 
 .timeline-item:hover {
@@ -190,18 +193,18 @@ body {
 }
 
 .project-item {
-    margin: 20px;
-    padding: 20px;
+    margin: 1.25rem; /* 20px */
+    padding: 1.25rem; /* 20px */
     border: 2px solid #F54952;
-    border-radius: 8px;
+    border-radius: 0.5rem; /* 8px */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: calc(45% - 40px);
+    width: calc(45% - 2.5rem); /* 40px */
     background-color: rgba(0, 0, 0, 0.7);
 }
 
 .project-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 10px 5px #F54952; 
+    transform: translateY(-0.625rem); /* 10px */
+    box-shadow: 0 0 0.625rem 0.3125rem #F54952; /* 10px 5px */
 }
 
 .project-item a {
@@ -209,19 +212,22 @@ body {
     text-decoration: none;
     font-weight: bold;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem; /* 10px */
     transition: color 0.3s ease;
+    font-size: 1rem; /* 16px */
 }
 
 .project-item p {
     color: #DDD;
+    font-size: 0.875rem; /* 14px */
 }
 
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 1.25rem; /* 20px */
     background: rgba(0, 0, 0, 0.7);
     color: white;
     position: relative;
     z-index: 1;
+    font-size: 1rem; /* 16px */
 }
