@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", function() {
             'Making Mobile Apps;', 
             'Robotics and Autonomous Vehicles;', 
             'Astronomy and Anime;', 
-            'Python, Kotlin and React...;',
+            'Designing',
+            'AI and Machine Learning',
             'கொத்து பரோட்டா;'
         ],
         counterS: 0,
