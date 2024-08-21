@@ -34,3 +34,5 @@ jobs:
     - name: Run HTML Linter (Optional)
       run: |
         npx htmlhint "**/*.html"
+
+# Explicitly specify the branch
