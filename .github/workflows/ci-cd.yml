@@ -11,11 +11,11 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v3  # Updated to v3
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./Personal Website
-        force_orphan: true
+        publish_dir: ./  # Your root directory or where index.html is located
+        force_orphan: true  # Force-push to gh-pages branch
