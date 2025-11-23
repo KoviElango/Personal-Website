@@ -1,242 +1,133 @@
-html {
-    height: 100%;
-    font-size: 17px; /* Base font size for rem units */
+/* --- 1. Variables & Base Settings --- */
+        :root {
+            --color-bg: #0a0a0a;
+            --color-text-primary: #ffffff;
+            --color-text-secondary: #9ca3af; /* Tailwind gray-400 */
+            --color-brand: #ff4d00; /* Signature Orange */
+            --cursor-size-default: 20px;
+            --cursor-size-active: 80px;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text-primary);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            cursor: none; /* Custom cursor takes over */
+        }
+
+        /* --- 2. Typography Overrides --- */
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Oswald', sans-serif;
+            /* text-transform: uppercase; */
+        }
+
+        ::selection {
+            background: var(--color-brand);
+            color: white;
+        }
+
+        /* --- 3. Custom Cursor Component --- */
+        .cursor-tracker {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: var(--cursor-size-default);
+            height: var(--cursor-size-default);
+            background-color: white;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference; /* Key effect: Inverts underlying colors */
+            transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1), 
+                        height 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .cursor-tracker.is-active {
+            width: var(--cursor-size-active);
+            height: var(--cursor-size-active);
+            background-color: white;
+        }
+
+        /* Brand indicator inside cursor */
+        .cursor-tracker::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            background-color: var(--color-brand);
+            border-radius: 50%;
+            mix-blend-mode: normal;
+        }
+
+        /* --- 4. Interactive Components --- */
+        
+        /* Marquee Strip (Scrolling Text) */
+        .marquee-wrapper {
+            height: 0;
+            overflow: hidden;
+            background-color: var(--color-brand);
+            color: black;
+            transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .service-card:hover .marquee-wrapper {
+            height: 4rem;
+        }
+
+        .marquee-track {
+            display: flex;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        
+        .marquee-content {
+            animation: scroll-left 15s linear infinite;
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Timeline/History Rows */
+        .timeline-row {
+            transition: all 0.3s ease;
+            border-left: 0px solid var(--color-brand);
+        }
+        
+        .timeline-row:hover {
+            background-color: #853100; 
+            border-left: 8px solid var(--color-brand);
+            padding-left: 2rem;
+        }
+
+        /* --- 5. Utilities --- */
+        .text-brand { color: var(--color-brand); }
+        .bg-brand { background-color: var(--color-brand); }
+        
+        /* Mobile Menu Transitions */
+        .mobile-menu-overlay {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu-overlay.is-open {
+            transform: translateX(0);
+        }
+
+        /* Import Dancing Script from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+/* helper class to use Dancing Script */
+.font-dancing {
+    font-family: 'Dancing Script', cursive;
 }
 
-body {
-    position: relative;
-    background: linear-gradient(to bottom, #660F56 6%, #AE2D68 100%);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: 'Source Code Pro', monospace;
-    color: white;
-    font-weight: 100;
-    margin: 0;
-    padding: 0;
+/* helper class to use Oswald */
+.font-oswald {
+    font-family: 'Oswald', sans-serif;
 }
-
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat;
-    opacity: 0.9; 
-    pointer-events: none;
-    z-index: 1;
-}
-
-.wrapper {
-    position: relative;
-    z-index: 2;
-    margin-top: var(--wrapper-offset, 10rem); 
-    margin-left: var(--wrapper-offset, 15rem);
-    text-align: left;
-}
-
-.wrapper h1 {
-    font-size: 3rem; 
-    margin-top: 0;
-}
-
-.wrapper h3 {
-    font-size: 1.5rem; 
-    margin-bottom: 0;
-}
-
-.wrapper span {
-    display: inline-block;
-    text-align: left;
-    font-size: 1.5rem; 
-}
-
-.wrapper .cursor {
-    font-size: 1.5rem;
-    -webkit-animation: blink 0.7s infinite;
-    -moz-animation: blink 0.7s infinite;
-    animation: blink 0.7s infinite;
-}
-
-.wrapper .social {
-    position: relative;
-    margin-top: 3.125rem; 
-    margin-bottom: 18rem; 
-}
-
-.wrapper .social i {
-    padding: 0.625rem; 
-    border: 2px solid white;
-    border-radius: 70%;
-}
-
-.wrapper .social a {
-    color: white;
-    margin: 1.25rem; 
-}
-
-#scroll-down {
-    margin-top: 1.25rem;
-    width: 0;
-    height: 0;
-    border-left: 0.625rem solid transparent; 
-    border-right: 0.625rem solid transparent;
-    border-top: 0.9375rem solid var(--link-color); 
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-#scroll-down:hover {
-    transform: translateY(0.3125rem); 
-}
-
-@media (max-width: 768px) {
-    .wrapper h1 {
-        font-size: 2rem;
-    }
-
-    .wrapper h3 {
-        font-size: 1.5rem;
-    }
-
-    .wrapper span {
-        font-size: 1.25rem;
-    }
-
-    .wrapper .social i {
-        font-size: 1.25rem; 
-    }
-
-    .wrapper .social a {
-        margin: 0.3125rem; 
-    }
-
-    .wrapper .social {
-        text-align: center;
-    }
-}
-
-@keyframes blink {
-    0% {opacity: 1;}
-    50% {opacity: 0;}
-    100% {opacity: 1;}
-}
-
-/* Timeline and Projects Styles */
-#timeline, #projects {
-    margin: 2.5rem auto; 
-    width: 80%;
-    padding: 1.25rem;
-    position: relative;
-    z-index: 1;
-    color: #FFF;
-}
-
-h2 {
-    text-align: center;
-    color: #FFF;
-    transition: color 0.5s ease-in-out;
-    font-size: 2rem; 
-}
-
-.timeline-container {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-}
-
-.timeline-left, .timeline-right {
-    width: 45%;
-}
-
-.timeline-line {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 0.125rem; 
-    background: #F54952;
-    transform: translateX(-50%);
-}
-
-.timeline-item {
-    margin: 1.4rem 0; 
-    padding: 0.625rem 0; 
-    color: #FFF;
-    opacity: 0;
-    transform: translateY(3.125rem);
-    transition: all 1s ease-in-out;
-}
-
-.timeline-item h3, .timeline-item h4, .timeline-item span {
-    color: inherit;
-    transition: color 0.5s ease-in-out;
-    font-size: 1.25rem; 
-}
-
-.timeline-item.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.timeline-item.hidden {
-    opacity: 0;
-    transform: translateY(-3.125rem); 
-}
-
-.timeline-item:hover {
-    color: #ff7e84;
-    transition: color 0.5s ease-in-out;
-}
-
-.projects-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.project-item {
-    margin: 1.25rem; 
-    padding: 1.25rem; 
-    border: 2px solid #F54952;
-    border-radius: 0.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: calc(45% - 2.5rem);
-    opacity: 0.8; 
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-.project-item:hover {
-    transform: translateY(-0.625rem);
-    box-shadow: 0 0 0.625rem 0.3125rem #F54952;
-}
-
-.project-item a {
-    color: #F54952;
-    text-decoration: none;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 0.625rem; 
-    transition: color 0.3s ease;
-    font-size: 1.25rem; 
-}
-
-.project-item p {
-    color: #DDD;
-    font-size: 1rem;
-}
-
-footer {
-    text-align: center;
-    padding: 0.8rem;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    position: relative;
-    z-index: 1;
-    font-size: 0.8rem;
-}
-

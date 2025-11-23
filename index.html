@@ -3,116 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kovi Elango - Portfolio</title>
+    <title>Minh Pham - Product Designer</title>
+    
+    <!-- 
+        DEPENDENCIES 
+        - Tailwind CSS: For utility-first styling.
+        - Google Fonts: 'Inter' (Body) and 'Oswald' (Headings).
+        - GSAP: For high-performance animations.
+        - FontAwesome: For UI icons.
+    -->
+        
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Local stylesheet -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
-    <div class="wrapper">
-        <h3>Hi there! I am</h3>
-        <h1>Kovi Elango</h1>
-        <span>I love&nbsp;</span>
-        <span class="text"></span>
-        <span class="cursor">|</span>
-        <div class="social">
-            <a href="https://www.linkedin.com/in/koovendhan-elango-0b160989/" target="_blank">
-                <i class="fa fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/KoviElango" target="_blank">
-                <i class="fa fa-github"></i>
-            </a>
-            <a href="mailto:kovendhanelango@gmail.com" target="_blank">
-                <i class="fa fa-envelope"></i>
-            </a>
+<body class="antialiased">
+
+    <!-- Custom Cursor Element -->
+    <div id="js-cursor" class="cursor-tracker"></div>
+
+    <!-- Navigation: Desktop Top Right -->
+    <nav class="fixed top-0 right-0 p-8 z-50 hidden md:flex flex-col items-end gap-2 mix-blend-difference text-white">
+        <a href="#about" class="js-hover-trigger text-sm font-semibold tracking-widest hover:text-orange-500 transition-colors">ABOUT</a>
+        <a href="#work" class="js-hover-trigger text-sm font-semibold tracking-widest hover:text-orange-500 transition-colors">WORK</a>
+        <a href="#contact" class="js-hover-trigger text-sm font-semibold tracking-widest hover:text-orange-500 transition-colors">CONTACT</a>
+    </nav>
+
+    <!-- Navigation: Desktop Sidebar (Left) -->
+    <aside class="fixed top-0 left-0 h-full p-8 z-40 hidden md:flex flex-col justify-between mix-blend-difference text-white">
+        <!-- Logo -->
+        <div class="js-hover-trigger">
+            <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M25 0L46.6506 12.5V37.5L25 50L3.34937 37.5V12.5L25 0Z" fill="white"/>
+                <path d="M25 10L35 25L25 40L15 25L25 10Z" fill="black"/>
+            </svg>
         </div>
-        <div id="scroll-down" class="arrow"></div>
+        
+        <!-- Social Icons -->
+        <div class="flex flex-col gap-6 text-xl">
+            <a href="#" class="js-hover-trigger hover:text-gray-400"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="js-hover-trigger hover:text-gray-400"><i class="fab fa-github"></i></a>
+            <a href="#" class="js-hover-trigger hover:text-gray-400"><i class="fab fa-dribbble"></i></a>
+            <a href="#" class="js-hover-trigger hover:text-gray-400"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </aside>
+
+    <!-- Navigation: Mobile Toggle -->
+    <div class="fixed top-6 right-6 z-50 md:hidden mix-blend-difference text-white">
+        <button id="js-menu-btn" class="js-hover-trigger text-2xl"><i class="fas fa-bars"></i></button>
     </div>
 
-    <section id="timeline">
-        <h2>Timeline</h2>
-        <div class="timeline-container">
-            <div class="timeline-left">
-                <div class="timeline-item">
-                    <h3>Tacit Corporation – Toronto, CA</h3>
-                    <h4>Project Coordinator</h4>
-                    <span>January 2021 – April 2024</span>
+    <!-- Navigation: Mobile Overlay -->
+    <div id="js-mobile-menu" class="mobile-menu-overlay fixed inset-0 bg-black z-40 flex flex-col items-center justify-center gap-8 text-2xl font-heading md:hidden">
+        <a href="#about" class="mobile-link js-hover-trigger text-white hover:text-orange-500">ABOUT</a>
+        <a href="#work" class="mobile-link js-hover-trigger text-white hover:text-orange-500">WORK</a>
+        <a href="#contact" class="mobile-link js-hover-trigger text-white hover:text-orange-500">CONTACT</a>
+    </div>
+
+
+    <main>
+        <!-- SECTION: Hero -->
+        <section class="min-h-screen flex flex-col justify-center items-center relative px-4 md:pl-24 pt-20">
+            <div class="text-center z-10 js-hover-trigger p-10">
+                <p class="text-base md:text-1.5xl lg:text-1.5xl tracking-[0.3em] mb-4 text-gray-400">Hi, I'm Kovi and my favourit quote is...</p>
+                <h1 class="text-7xl md:text-9xl font-bold leading-[0.9] text-white">
+                    THE MOST<br>
+                    <span class="text-brand">PERSONAL</span> IS THE MOST<br>
+                    <!-- <span class="text-brand"></span><br> -->
+                    <span class="text-transparent font-bold bg-clip-text bg-gradient-to-b from-[#0DE5FF] to-[#0D9AFF] font-dancing">Creative</span>
+                </h1>
+                <p class="text-sm md:text-base tracking-[0.3em] mb-4 text-gray-400 text-right md:text-right"> - Martin Scorsese</p>
+            </div>
+            
+            <!-- Decorative Background Element -->
+            <div class="absolute top-1/2 left-1/4 w-32 h-32 bg-orange-600 rounded-full blur-3xl opacity-20 animate-pulse pointer-events-none"></div>
+            <div class="absolute top-2/3 left-1/2 w-36 h-40 rounded-full blur-3xl opacity-25 animate-pulse pointer-events-none z-0 bg-gradient-to-b from-[#0D9AFF] to-[#0DE5FF]"></div>
+        </section>
+
+        <!-- SECTION: About -->
+        <section id="about" class="min-h-[60vh] flex items-center px-6 md:pl-32 md:pr-20 py-20 bg-black">
+            <div class="max-w-6xl">
+                <p class="text-brand text-sm font-bold tracking-widest mb-8 uppercase">About Me</p>
+                <h2 class="text-3xl md:text-6xl font-normal leading-tight">
+                    I'm a <span class="text-brand font-bold js-hover-trigger">Digital Blacksmith.</span> A multidisciplinary creator, passionate about building things that combine art, design, and tech. I work across software, product design, and Art, turning ideas into expressions.
+                </h2>
+            </div>
+        </section>
+
+        <!-- SECTION: Services (What I Do) -->
+        <section id="work" class="py-20 bg-black">
+            <div class="px-6 md:pl-32 mb-12">
+                <p class="text-gray-500 text-sm font-bold tracking-widest uppercase">What I Do</p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="flex flex-col border-t border-gray-800">
+                
+                <!-- Card 1 -->
+                <div class="service-card group border-b border-gray-800 relative cursor-none">
+                    <div class="py-8 px-6 md:pl-32 flex items-baseline gap-4 js-hover-trigger w-full">
+                        <span class="text-brand text-xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">●</span>
+                        <h3 class="text-6xl md:text-8xl text-gray-400 group-hover:text-white transition-colors duration-300">CODE</h3>
+                    </div>
+                    <div class="marquee-wrapper">
+                        <div class="marquee-track">
+                            <div class="marquee-content text-lg md:text-xl font-medium py-4 px-4">
+                                I search the internet for visual references and then combine them to create my own work. &nbsp; • &nbsp; Blender, Cinema 4D, Spline &nbsp; • &nbsp; 
+                                I search the internet for visual references and then combine them to create my own work. &nbsp; • &nbsp; Blender, Cinema 4D, Spline &nbsp; • &nbsp;
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="timeline-item">
-                    <h3>Accenture – Chennai, IN</h4>
-                    <h4>Application Development Analyst</h4>
-                    <span>June 2016 – June 2018</span>
+
+                <!-- Card 2 -->
+                <div class="service-card group border-b border-gray-800 relative cursor-none">
+                    <div class="py-8 px-6 md:pl-32 flex items-baseline gap-4 js-hover-trigger w-full">
+                        <span class="text-brand text-xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">●</span>
+                        <h3 class="text-6xl md:text-8xl text-gray-400 group-hover:text-white transition-colors duration-300">DESIGN</h3>
+                    </div>
+                    <div class="marquee-wrapper">
+                        <div class="marquee-track">
+                            <div class="marquee-content text-lg md:text-xl font-medium py-4 px-4">
+                                I use fancy motion that makes my design more interesting than it actually is. &nbsp; • &nbsp; Photoshop, Figma, Illustrator &nbsp; • &nbsp;
+                                I use fancy motion that makes my design more interesting than it actually is. &nbsp; • &nbsp; Photoshop, Figma, Illustrator &nbsp; • &nbsp;
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="timeline-item">
-                    <h3>RND Ltd. – Hamilton, CA (Internship)</h4>
-                    <h4>Design Engineering Intern</h4>
-                    <span>August 2018 – December 2020</span>
+
+                <!-- Card 3 -->
+                <div class="service-card group border-b border-gray-800 relative cursor-none">
+                    <div class="py-8 px-6 md:pl-32 flex items-baseline gap-4 js-hover-trigger w-full">
+                        <span class="text-brand text-xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">●</span>
+                        <h3 class="text-6xl md:text-8xl text-gray-400 group-hover:text-white transition-colors duration-300">ANALYTICS</h3>
+                    </div>
+                    <div class="marquee-wrapper">
+                        <div class="marquee-track">
+                            <div class="marquee-content text-lg md:text-xl font-medium py-4 px-4">
+                                Making things move so you stay on the website longer. &nbsp; • &nbsp; After Effects, Principle, ProtoPie &nbsp; • &nbsp;
+                                Making things move so you stay on the website longer. &nbsp; • &nbsp; After Effects, Principle, ProtoPie &nbsp; • &nbsp;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 <!-- Card 4 -->
+                 <div class="service-card group border-b border-gray-800 relative cursor-none">
+                    <div class="py-8 px-6 md:pl-32 flex items-baseline gap-4 js-hover-trigger w-full">
+                        <span class="text-brand text-xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">●</span>
+                        <h3 class="text-6xl md:text-8xl text-gray-400 group-hover:text-white transition-colors duration-300">PRODUCT</h3>
+                    </div>
+                    <div class="marquee-wrapper">
+                        <div class="marquee-track">
+                            <div class="marquee-content text-lg md:text-xl font-medium py-4 px-4">
+                                Designing systems that actually scale and make sense. &nbsp; • &nbsp; UI/UX, Design Systems, User Research &nbsp; • &nbsp;
+                                Designing systems that actually scale and make sense. &nbsp; • &nbsp; UI/UX, Design Systems, User Research &nbsp; • &nbsp;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION: Experience -->
+        <section class="py-20 bg-black min-h-screen">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 px-6 md:pl-32 md:pr-12">
+                <!-- Sticky Header -->
+                <div class="sticky top-20 h-fit">
+                    <p class="text-brand text-sm font-bold tracking-widest uppercase mb-6">Experience</p>
+                    <h2 class="text-4xl md:text-6xl font-normal leading-tight mb-8">
+                        Over <span class="text-brand js-hover-trigger">a decade</span> of experience in Software Industry and building projects with great people across various fields.
+                    </h2>
+                </div>
+
+                <!-- Timeline List -->
+                <div class="flex flex-col gap-0 w-full">
+                    <p class="text-gray-500 text-sm font-bold tracking-widest uppercase mb-6 border-b border-gray-800 pb-2">History</p>
+                    
+                    <!-- Entry 1 -->
+                    <div class="timeline-row group border-b border-gray-800 py-10 px-4 js-hover-trigger cursor-pointer">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                            <span class="text-3xl font-bold font-heading mb-2 md:mb-0 group-hover:text-white">NOW</span>
+                            <div class="text-right md:text-right w-full md:w-auto">
+                                <h4 class="text-2xl font-bold group-hover:text-white">Design Lead</h4>
+                                <p class="text-sm opacity-60 group-hover:opacity-100">KE Studio</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Entry 2 -->
+                    <div class="timeline-row group border-b border-gray-800 py-10 px-4 js-hover-trigger cursor-pointer">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                            <span class="text-3xl font-bold font-heading text-gray-500 group-hover:text-white mb-2 md:mb-0">2021</span>
+                            <div class="text-right md:text-right w-full md:w-auto">
+                                <h4 class="text-2xl font-bold group-hover:text-white">Product Owner</h4>
+                                <p class="text-sm opacity-60 group-hover:opacity-100">Tacit Innovation</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Entry 3 -->
+                    <div class="timeline-row group border-b border-gray-800 py-10 px-4 js-hover-trigger cursor-pointer">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                            <span class="text-3xl font-bold font-heading text-gray-500 group-hover:text-white mb-2 md:mb-0">2020</span>
+                            <div class="text-right md:text-right w-full md:w-auto">
+                                <h4 class="text-2xl font-bold group-hover:text-white">Design Engineer</h4>
+                                <p class="text-sm opacity-60 group-hover:opacity-100">RND Ltd</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Entry 4 -->
+                    <div class="timeline-row group border-b border-gray-800 py-10 px-4 js-hover-trigger cursor-pointer">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                            <span class="text-3xl font-bold font-heading text-gray-500 group-hover:text-white mb-2 md:mb-0">2016</span>
+                            <div class="text-right md:text-right w-full md:w-auto">
+                                <h4 class="text-2xl font-bold group-hover:text-white">Software Developer</h4>
+                                <p class="text-sm opacity-60 group-hover:opacity-100">Accenture</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="timeline-line"></div>
-            <div class="timeline-right">
-                <div class="timeline-item">
-                    <h3>McMaster University – Hamilton, ON</h3>
-                    <h4>Master of Engineering Design</h4>
-                    <span>2019</span>
+        </section>
+
+        <!-- SECTION: Clients -->
+        <section id="clients" class="py-20 px-6 md:pl-32 bg-black font-oswald">
+            <p class="text-gray-500 text-sm font-bold tracking-widest uppercase mb-12">Technology</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="text-3xl md:text-5xl font-normal leading-tight js-hover-trigger">
+                    I come from a unique blend of<span class="text-brand decoration-4 js-hover-trigger"> SOFTWARE & HARDWARE.</span> Over the past few years, I’ve built some amazing apps, led product launches, and solved some cross-team challenges. 
                 </div>
-                <div class="timeline-item">
-                    <h3>Anna University – Chennai, IN</h3>
-                    <h4>Bachelor of Engineering - Electronics and Instrumentation</h4>
-                    <span>2016</span>
-                </div>
+                 
+                 <div class="flex flex-col justify-center text-5xl md:text-7xl font-heading font-bold text-gray-400 select-none">
+                    <div class="hover:text-white transition-colors duration-300 hover:pl-4 cursor-pointer js-hover-trigger">ANDROID/KOTLIN</div>
+                     <div class="hover:text-white transition-colors duration-300 hover:pl-4 cursor-pointer js-hover-trigger">AR/VR/XR</div>
+                     <div class="hover:text-white transition-colors duration-300 hover:pl-4 cursor-pointer js-hover-trigger">PYTHON</div>
+                     <div class="hover:text-white transition-colors duration-300 hover:pl-4 cursor-pointer js-hover-trigger">ROBOTICS</div>
+                     <div class="hover:text-white transition-colors duration-300 hover:pl-4 cursor-pointer js-hover-trigger">C.A.D</div>
+                     <div class="hover:text-white transition-colors duration-300 hover:pl-4 cursor-pointer js-hover-trigger">DIGITAL ARTIST</div>
+                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul class="projects-list">
-            <li class="project-item">
-                <a href="https://github.com/KoviElango/Thaavarm" target="_blank">
-                    <h3>Thavaram</h3>
-                    <p>Android application which uses libraries to identify plant species.</p>
-                </a>
-            </li>
-            <li class="project-item">
-                <a href="https://github.com/KoviElango/Travelog" target="_blank">
-                    <h3>Travelog</h3>
-                    <p>React-Native application which can plan your next trip.</p>
-                </a>
-            </li>
-            <li class="project-item">
-                <a href="https://github.com/KoviElango/Mowheel" target="_blank">
-                    <h3>Mowheel</h3>
-                    <p>Android application to choose a random movie to watch.</p>
-                </a>
-            </li>
-            <li class="project-item">
-                <a href="https://github.com/KoviElango/StickyNotesAndroid" target="_blank">
-                    <h3>StickyNotes</h3>
-                    <p>Android application to keep track of stuff to do.</p>
-                </a>
-            </li>
-            <li class="project-item">
-                <a href="https://sites.google.com/view/kovielango/project-page?authuser=0" target="_blank">
-                    <h3>Autonomous Ratt</h3>
-                    <p>An autonomous lawn mower that can recognize your lawn and cut grass for you.</p>
-                </a>
-            </li>
-            <li class="project-item">
-                <a href="https://github.com/KoviElango/PyroHeadGear" target="_blank">
-                    <h3>Pyro headgear</h3>
-                    <p>Augmented Reality headgear for firefighters to keep track of their dangerous environment.</p>
-                </a>
-            </li>
-        </ul>
-    </section>
+        <!-- SECTION: Footer -->
+        <footer id="contact" class="py-20 px-6 md:pl-32 bg-black border-t border-gray-900 flex flex-col md:flex-row justify-between items-end">
+             <div>
+                 <h2 class="text-6xl md:text-8xl font-bold font-heading mb-6 js-hover-trigger">LET'S TALK</h2>
+                 <a href="mailto:hello@minhpham.design" class="text-xl md:text-2xl text-gray-400 hover:text-orange-500 transition-colors js-hover-trigger">kovendhanelango@gmail.com</a>
+             </div>
+             <div class="mt-12 md:mt-0 flex gap-8">
+                 <span class="text-gray-600">“If you don’t take risks, you can’t create a future!” — Monkey D. Luffy</span>
+             </div>
+        </footer>
+    </main>
 
-    <footer>
-        <p>“If you don’t take risks, you can’t create a future!” — Monkey D. Luffy </p>
-    </footer>
-
+    <!-- Local script (loaded at end so DOM elements exist) -->
     <script src="script.js"></script>
 </body>
 </html>
