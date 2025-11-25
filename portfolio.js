@@ -37,3 +37,69 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   loop();
 });
+
+// ========================================
+// PORTFOLIO PAGE: Project Hover & Preview
+// ========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    const projectsList = document.getElementById('projects-list');
+    const imagePreviewContainer = document.getElementById('image-preview-container');
+    const imagePreview = document.getElementById('image-preview');
+    const projectItems = document.querySelectorAll('.project-item');
+    
+    let currentItem = null;
+
+    /**
+     * Handle mouse enter: update image and show preview
+     */
+    const handleMouseEnter = (event) => {
+        const targetItem = event.target.closest('.project-item');
+        if (!targetItem || currentItem === targetItem) return;
+
+        currentItem = targetItem;
+
+        const imageText = targetItem.getAttribute('data-image');
+        const imageUrl = `https://placehold.co/${imageText}/FFF`;
+        imagePreview.src = imageUrl;
+
+        imagePreviewContainer.classList.add('is-visible');
+    };
+
+    /**
+     * Handle mouse leave: hide preview with debounce
+     */
+    const handleMouseLeave = (event) => {
+        if (event.target.closest('.project-item') === currentItem) {
+            setTimeout(() => {
+                if (!projectsList.querySelector(':hover .project-item')) {
+                    imagePreviewContainer.classList.remove('is-visible');
+                    currentItem = null;
+                }
+            }, 50);
+        }
+    };
+
+    /**
+     * Handle mouse move: track mouse Y position for dynamic preview movement
+     */
+    const handleMouseMove = (event) => {
+        if (imagePreviewContainer.classList.contains('is-visible')) {
+            const mouseY = event.clientY;
+            imagePreviewContainer.style.transform = `translate3d(0, ${mouseY - 200}px, 0) rotate3d(0, 0, 1, 0deg)`;
+            imagePreviewContainer.style.top = '0';
+        }
+    };
+
+    // Attach event listeners
+    projectItems.forEach(item => {
+        item.addEventListener('mouseenter', handleMouseEnter);
+    });
+    
+    projectsList.addEventListener('mouseleave', () => {
+        imagePreviewContainer.classList.remove('is-visible');
+        currentItem = null;
+    });
+    
+    document.addEventListener('mousemove', handleMouseMove);
+});

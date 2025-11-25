@@ -1,73 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portfolio — Kovi Elango</title>
-
-  <!-- Fonts used for portfolio only -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
-
-  <!-- Portfolio styles -->
-  <link rel="stylesheet" href="portfolio.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio — Kovi Elango</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfolio.css">
 </head>
-<body class="antialiased">
+<body class="bg-gray-900 text-gray-100">
 
-  <canvas id="art-canvas" class="pointer-events-none"></canvas>
-
-  <nav class="px-6 py-6">
-    <a href="index.html" class="back-link">← Return Home</a>
-    <span class="nav-brand" style="float:right">Digital Blacksmith</span>
-  </nav>
-
-  <main class="px-6">
-    <header class="mb-8">
-      <h1 class="text-4xl" style="font-family:'Playfair Display',serif">Featured Artifacts</h1>
-      <p class="subtitle text-gray-400">A visual exploration of selected works.</p>
+    <!-- Header / Navigation -->
+    <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 flex justify-between items-center border-b border-gray-800">
+        <a href="index.html" class="text-2xl font-black tracking-wider hover:text-orange-500 transition">Kovi<span class="text-yellow-400">.</span></a>
+        <nav class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
+            <a href="index.html#about" class="hover:text-white transition duration-150">ABOUT</a>
+            <a href="index.html#work" class="hover:text-white transition duration-150">WORK</a>
+            <a href="index.html#contact" class="hover:text-white transition duration-150">CONTACT</a>
+        </nav>
     </header>
 
-    <!-- Carousel placeholder -->
-    <section class="carousel-section">
-      <button class="carousel-btn prev" id="prevBtn">←</button>
-      <button class="carousel-btn next" id="nextBtn">→</button>
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+        <div class="flex flex-col lg:flex-row justify-between">
+            <!-- Left Side: Project Title -->
+            <div class="w-full lg:w-1/3 mb-10 lg:mb-0">
+                <h1 class="text-6xl sm:text-7xl font-extrabold tracking-tight text-white mb-4">
+                    Projects
+                </h1>
+                <p class="text-lg text-gray-400">A selection of recent work in App developement, Data Analytics and Web Design.</p>
+            </div>
 
-      <ul class="carousel-track">
-        <li class="carousel-slide active">
-          <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2670&auto=format&fit=crop" class="slide-img" alt="Project 1">
-          <div class="slide-content">
-            <h2 class="slide-title">The Silent App</h2>
-            <p class="slide-desc">Mobile Architecture / 2023</p>
-          </div>
-        </li>
-        <li class="carousel-slide">
-          <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2574&auto=format&fit=crop" class="slide-img" alt="Project 2">
-          <div class="slide-content">
-            <h2 class="slide-title">Neural Net V2</h2>
-            <p class="slide-desc">Python AI Research / 2022</p>
-          </div>
-        </li>
-        <li class="carousel-slide">
-          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2670&auto=format&fit=crop" class="slide-img" alt="Project 3">
-          <div class="slide-content">
-            <h2 class="slide-title">Robotics Core</h2>
-            <p class="slide-desc">Hardware Engineering / 2021</p>
-          </div>
-        </li>
-      </ul>
-    </section>
+            <!-- Right Side: Secondary Info -->
+            <div class="w-full lg:w-2/3 flex justify-end relative">
+                <div class="text-right text-gray-400 space-y-2 text-sm">
+                    <p class="font-medium tracking-widest">WATCH EMPTY SPACES COME ALIVE</p>
+                    <div class="flex space-x-4 justify-end">
+                        <span>Kotlin</span>
+                        <span>Python</span>
+                        <span>React</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <!-- Grid placeholder -->
-    <section class="grid-section mt-12">
-      <h3 class="grid-header">Full Index</h3>
-      <div class="project-list">
-        <div class="project-item"><span class="p-title">Data Visualization Dashboard</span><span style="color:#666">→</span></div>
-        <div class="project-item"><span class="p-title">E-Commerce Architecture</span><span style="color:#666">→</span></div>
-        <div class="project-item"><span class="p-title">Unity 3D Game Engine</span><span style="color:#666">→</span></div>
-      </div>
-    </section>
-  </main>
+        <!-- Projects List -->
+        <div id="projects-list" class="mt-16 border-t border-gray-800">
+            <!-- PROJECT ITEM 1 -->
+            <div class="project-item" data-image="1000x1200/222/FFF?text=VELVET+SIGNAL" data-color="#b45309">
+              <a href="https://github.com/KoviElango/Since" class="absolute inset-0 z-10" aria-label="SINCE project link"></a>
+                <div class="highlight-bar"></div>
+                <div class="text-lg font-medium">SINCE</div>
+                <div class="flex space-x-4 text-sm font-mono text-gray-400">
+                    <span class="text-yellow-400">MOBILE APPLICATION</span>
+                    <span>ANDROID</span>
+                </div>
+                <div></div>
+                <div class="text-sm font-mono text-gray-400">2025</div>
+            </div>
 
-  <script src="portfolio.js"></script>
+            <!-- PROJECT ITEM 2 -->
+            <div class="project-item" data-image="1000x1200/222/FFF?text=VELVET+SIGNAL" data-color="#b45309">
+              <a href="https://github.com/KoviElango/Travelog" class="absolute inset-0 z-10" aria-label="MAZE"></a>
+                <div class="highlight-bar"></div>
+                <div class="text-lg font-medium">MAZE BUILDER</div>
+                <div class="flex space-x-4 text-sm font-mono text-gray-400">
+                    <span class="text-yellow-400">PYTHON</span>
+                    <!-- <span>PYTHON</span> -->
+                </div>
+                <div></div>
+                <div class="text-sm font-mono text-gray-400">2025</div>
+            </div>
+            <!-- PROJECT ITEM 3 -->
+            <div class="project-item" data-image="1000x1200/222/FFF?text=VELVET+SIGNAL" data-color="#b45309">
+              <a href="https://github.com/KoviElango/TrackpadApp-Android" class="absolute inset-0 z-10" aria-label="TRACKPAD"></a>
+                <div class="highlight-bar"></div>
+                <div class="text-lg font-medium">MY TRACKPAD</div>
+                <div class="flex space-x-4 text-sm font-mono text-gray-400">
+                    <span class="text-yellow-400">MOBILE APPLICATION</span>
+                    <span>ANDROID</span>
+                </div>
+                <div></div>
+                <div class="text-sm font-mono text-gray-400">2024</div>
+            </div>
+
+            <!-- PROJECT ITEM 4 -->
+            <div class="project-item" data-image="1000x1200/222/FFF?text=VELVET+SIGNAL" data-color="#b45309">
+              <a href="https://github.com/KoviElango/Thaavarm" class="absolute inset-0 z-10" aria-label="THAAVARM"></a>
+                <div class="highlight-bar"></div>
+                <div class="text-lg font-medium">THAAVARM</div>
+                <div class="flex space-x-4 text-sm font-mono text-gray-400">
+                    <span class="text-yellow-400">MOBILE APPLICATION</span>
+                    <span>ANDROID</span>
+                </div>
+                <div></div>
+                <div class="text-sm font-mono text-gray-400">2024</div>
+            </div>
+
+            <!-- PROJECT ITEM 5 -->
+            <div class="project-item" data-image="1000x1200/222/FFF?text=VELVET+SIGNAL" data-color="#b45309">
+              <a href="https://github.com/KoviElango/Travelog" class="absolute inset-0 z-10" aria-label="TRAVELOG"></a>
+                <div class="highlight-bar"></div>
+                <div class="text-lg font-medium">TRAVELOG</div>
+                <div class="flex space-x-4 text-sm font-mono text-gray-400">
+                    <span class="text-yellow-400">(under construction)</span>
+                    <span>REACT NATIVE</span>
+                </div>
+                <div></div>
+                <div class="text-sm font-mono text-gray-400">2025</div>
+            </div>
+
+
+            <!-- PROJECT ITEM 6 -->
+            <div class="project-item" data-image="1000x1200/222/FFF?text=VELVET+SIGNAL" data-color="#b45309">
+              <a href="https://github.com/KoviElango/Mowheel" class="absolute inset-0 z-10" aria-label="MOWHEEL"></a>
+                <div class="highlight-bar"></div>
+                <div class="text-lg font-medium">MOWHEEL</div>
+                <div class="flex space-x-4 text-sm font-mono text-gray-400">
+                    <span class="text-yellow-400">MOBILE</span>
+                    <span>ANDROID/PYTHON</span>
+                </div>
+                <div></div>
+                <div class="text-sm font-mono text-gray-400">2024</div>
+            </div>
+
+
+            <!-- PROJECT ITEM 7 -->
+            <div class="project-item" data-image="1000x1200/888/FFF?text=QUIET+LANTERN" data-color="#4c1d95">
+              <a href="https://github.com/KoviElango/AI-voice-assistant" class="absolute inset-0 z-10" aria-label="AI VOICE"></a>
+                <div class="highlight-bar"></div>
+                <div class="text-lg font-medium">AI VOICE ASSISTANT</div>
+                <div class="flex space-x-4 text-sm font-mono text-gray-400">
+                    <span class="text-yellow-400">PYTHON</span>
+                </div>
+                <div></div>
+                <div class="text-sm font-mono text-gray-400">2024</div>
+            </div>
+
+            <!-- PROJECT ITEM 8 -->
+            <div class="project-item" data-image="1000x1200/999/FFF?text=INDIGO+ORCHARD" data-color="#701a75">
+                <div class="highlight-bar"></div>
+                <div class="text-lg font-medium">THE AUTONOMOUS RATT</div>
+                <div class="flex space-x-4 text-sm font-mono text-gray-400">
+                    <span class="text-yellow-400">PRODUCT</span>
+                    <span>ROBOTICS</span>
+                </div>
+                <div></div>
+                <div class="text-sm font-mono text-gray-400">2021</div>
+            </div>
+
+            <!-- PROJECT ITEM 9 -->
+            <div class="project-item" data-image="1000x1200/aaa/FFF?text=GOLDEN+HORIZON" data-color="#854d0e">
+                <div class="highlight-bar"></div>
+                <div class="text-lg font-medium">BUTTON ANIMATION LIBRARY</div>
+                <div class="flex space-x-4 text-sm font-mono text-gray-400">
+                    <span class="text-yellow-400">DIGITAL PRODUCT</span>
+                </div>
+                <div></div>
+                <div class="text-sm font-mono text-gray-400">2024</div>
+            </div>
+
+            <!-- PROJECT ITEM 10 -->
+            <div class="project-item" data-image="1000x1200/bbb/FFF?text=NORTHERN+THREAD" data-color="#064e3b">
+                <div class="highlight-bar"></div>
+                <div class="text-lg font-medium">PYRO HEADGEAR</div>
+                <div class="flex space-x-4 text-sm font-mono text-gray-400">
+                    <span class="text-yellow-400">PRODUCT</span>
+                    <span>AR/XR</span>
+                </div>
+                <div></div>
+                <div class="text-sm font-mono text-gray-400">2016</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Image Preview Container -->
+    <div id="image-preview-container">
+        <img id="image-preview" src="" alt="Project Preview">
+    </div>
+
+    <script src="portfolio.js"></script>
 </body>
 </html>

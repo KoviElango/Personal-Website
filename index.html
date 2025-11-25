@@ -75,13 +75,11 @@
             <div class="text-center z-10 js-hover-trigger p-10">
                 <p class="text-base md:text-1.5xl lg:text-1.5xl tracking-[0.3em] mb-4 text-gray-400">Hi, I'm Kovi, let's build something...</p>
                 <h1 class="text-7xl md:text-9xl font-bold leading-[0.9] text-white">
-                    The most<br>
-                    <span class="text-brand">Personal</span> is the most<br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-b from-[#FF80BD] to-[#8908BF] font-dancing">CREATIVE</span>
-                </h1>
-                <p class="text-sm md:text-base tracking-[0.3em] mb-4 text-gray-400 w-full text-right md:text-right"> ~ Martin Scorsese</p>
-
-            </div>
+                    "THE MOST<br>
+                    <span class="text-brand">PERSONAL</span> IS THE MOST<br>
+                    <!-- <span class="text-brand"></span><br> -->
+                    <span class="text-transparent font-bold bg-clip-text bg-gradient-to-b from-[#0DE5FF] to-[#0D9AFF] font-dancing">Creative</span>
+            
             
             <!-- Decorative Background Element -->
             <div class="absolute top-1/2 left-1/4 w-32 h-32 bg-orange-600 rounded-full blur-3xl opacity-20 animate-pulse pointer-events-none"></div>
@@ -245,60 +243,76 @@
                 </div>
                  
                  <div class="flex flex-col justify-center text-5xl md:text-7xl font-heading font-bold text-gray-400 select-none">
-                    <div class="hover:text-white transition-colors duration-300 hover:pl-4 cursor-pointer js-hover-trigger">ANDROID/KOTLIN</div>
-                     <div class="hover:text-white transition-colors duration-300 hover:pl-4 cursor-pointer js-hover-trigger">AR/VR/XR</div>
-                     <div class="hover:text-white transition-colors duration-300 hover:pl-4 cursor-pointer js-hover-trigger">PYTHON</div>
-                     <div class="hover:text-white transition-colors duration-300 hover:pl-4 cursor-pointer js-hover-trigger">ROBOTICS</div>
-                     <div class="hover:text-white transition-colors duration-300 hover:pl-4 cursor-pointer js-hover-trigger">C.A.D</div>
-                     <div class="hover:text-white transition-colors duration-300 hover:pl-4 cursor-pointer js-hover-trigger">DIGITAL ARTIST</div>
+                    <div class="hover:text-[#ff4d00] transition-colors duration-300 hover:pl-4 cursor-pointer js-hover-trigger">ANDROID/KOTLIN</div>
+                     <div class="hover:text-[#ff4d00] transition-colors duration-300 hover:pl-4 cursor-pointer js-hover-trigger">AR/VR/XR</div>
+                     <div class="hover:text-[#ff4d00] transition-colors duration-300 hover:pl-4 cursor-pointer js-hover-trigger">PYTHON</div>
+                     <div class="hover:text-[#ff4d00] transition-colors duration-300 hover:pl-4 cursor-pointer js-hover-trigger">ROBOTICS</div>
+                     <div class="hover:text-[#ff4d00] transition-colors duration-300 hover:pl-4 cursor-pointer js-hover-trigger">C.A.D</div>
+                     <div class="hover:text-[#ff4d00] transition-colors duration-300 hover:pl-4 cursor-pointer js-hover-trigger">DIGITAL ARTIST</div>
                  </div>
             </div>
         </section>
 
                 <!-- PORTFOLIO: Selected Works (new) -->
-        <section id="portfolio" class="py-20 bg-black">
-            <!-- fixed canvas background for this section -->
-            <canvas id="art-canvas" class="pointer-events-none"></canvas>
+        <section id="portfolio" class="py-20 bg-black relative overflow-hidden">
+            <canvas id="art-canvas" class="absolute inset-0 pointer-events-none"></canvas>
 
-            <div class="max-w-6xl mx-auto px-6 md:px-0">
-                <header class="mb-12">
-                    <h2 class="text-4xl md:text-5xl font-heading font-normal text-white">Featured Artifacts</h2>
-                    <p class="text-gray-400 mt-2">A visual exploration of selected works.</p>
-                </header>
+            <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-7xl font-bold font-heading text-white mb-4">Featured Work</h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">Projects demonstrating innovation across Robotics, AR/VR/XR, Mobile and Web Applications.</p>
+            </div>
 
-                Carousel
-                <!-- <div class="carousel-section mx-auto">
-                    <button class="carousel-btn prev" id="prevBtn">←</button>
-                    <button class="carousel-btn next" id="nextBtn">→</button>
+            <!-- Carousel -->
+            <div class="carousel-section relative mx-auto mb-12">
+                <button class="carousel-btn prev" id="prevBtn" aria-label="Previous project">
+                <i class="fas fa-arrow-left"></i>
+                </button>
+                <button class="carousel-btn next" id="nextBtn" aria-label="Next project">
+                <i class="fas fa-arrow-right"></i>
+                </button>
 
-                    <ul class="carousel-track">
-                        <li class="carousel-slide active">
-                            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2670&auto=format&fit=crop" class="slide-img" alt="Project 1">
-                            <div class="slide-content">
-                                <h3 class="slide-title">The Silent App</h3>
-                                <p class="slide-desc">Mobile Architecture / 2023</p>
-                            </div>
-                        </li>
-                        <li class="carousel-slide">
-                            <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2574&auto=format&fit=crop" class="slide-img" alt="Project 2">
-                            <div class="slide-content">
-                                <h3 class="slide-title">Neural Net V2</h3>
-                                <p class="slide-desc">Python AI Research / 2022</p>
-                            </div>
-                        </li>
-                        <li class="carousel-slide">
-                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2670&auto=format&fit=crop" class="slide-img" alt="Project 3">
-                            <div class="slide-content">
-                                <h3 class="slide-title">Robotics Core</h3>
-                                <p class="slide-desc">Hardware Engineering / 2021</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div> -->
-                <!-- NEW: link to standalone portfolio page -->
-                <!-- <a href="portfolio.html" class="mt-6 inline-block bg-brand text-black px-6 py-3 rounded-full font-bold hover:opacity-90 transition">View Portfolio</a> -->
+                <ul class="carousel-track rounded-lg overflow-hidden">
+                <li class="carousel-slide active">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2670&auto=format&fit=crop" class="slide-img" alt="The Autonomous RATT">
+                    <div class="slide-content">
+                    <h3 class="slide-title">The Autonomous RATT</h3>
+                    <p class="slide-desc">Robotics, ML & Computer Vision • 2021</p>
+                    </div>
+                </li>
+                <li class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2574&auto=format&fit=crop" class="slide-img" alt="Pyro Headgear">
+                    <div class="slide-content">
+                    <h3 class="slide-title">Pyro Headgear</h3>
+                    <p class="slide-desc">AR/XR Framework & Spatial Computing • 2017</p>
+                    </div>
+                </li>
+                <li class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2670&auto=format&fit=crop" class="slide-img" alt="Since">
+                    <div class="slide-content">
+                    <h3 class="slide-title">Since</h3>
+                    <p class="slide-desc">Cross-Platform Mobile Application • 2025</p>
+                    </div>
+                </li>
+                </ul>
+            </div>
+
+            <!-- Gamified CTA Button -->
+            <div class="flex justify-center">
+                <a href="portfolio.html" class="portfolio-cta group relative inline-flex items-center justify-center px-8 py-4 font-bold text-black bg-brand rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/50">
+                <span class="relative z-10 flex items-center gap-2">
+                    <i class="fas fa-star group-hover:animate-spin"></i>
+                    Explore All Projects
+                    <i class="fas fa-star group-hover:animate-spin"></i>
+                </span>
+                <div class="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
+                </a>
+            </div>
             </div>
         </section>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
         <!-- SECTION: Footer -->
         <footer id="contact" class="py-20 px-6 md:pl-32 bg-black border-t border-gray-900 flex flex-col md:flex-row justify-between items-end">
