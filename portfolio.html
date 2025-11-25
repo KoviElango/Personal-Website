@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — Kovi Elango</title>
+
+  <!-- Fonts used for portfolio only -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+
+  <!-- Portfolio styles -->
+  <link rel="stylesheet" href="portfolio.css">
+</head>
+<body class="antialiased">
+
+  <canvas id="art-canvas" class="pointer-events-none"></canvas>
+
+  <nav class="px-6 py-6">
+    <a href="index.html" class="back-link">← Return Home</a>
+    <span class="nav-brand" style="float:right">Digital Blacksmith</span>
+  </nav>
+
+  <main class="px-6">
+    <header class="mb-8">
+      <h1 class="text-4xl" style="font-family:'Playfair Display',serif">Featured Artifacts</h1>
+      <p class="subtitle text-gray-400">A visual exploration of selected works.</p>
+    </header>
+
+    <!-- Carousel placeholder -->
+    <section class="carousel-section">
+      <button class="carousel-btn prev" id="prevBtn">←</button>
+      <button class="carousel-btn next" id="nextBtn">→</button>
+
+      <ul class="carousel-track">
+        <li class="carousel-slide active">
+          <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2670&auto=format&fit=crop" class="slide-img" alt="Project 1">
+          <div class="slide-content">
+            <h2 class="slide-title">The Silent App</h2>
+            <p class="slide-desc">Mobile Architecture / 2023</p>
+          </div>
+        </li>
+        <li class="carousel-slide">
+          <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2574&auto=format&fit=crop" class="slide-img" alt="Project 2">
+          <div class="slide-content">
+            <h2 class="slide-title">Neural Net V2</h2>
+            <p class="slide-desc">Python AI Research / 2022</p>
+          </div>
+        </li>
+        <li class="carousel-slide">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2670&auto=format&fit=crop" class="slide-img" alt="Project 3">
+          <div class="slide-content">
+            <h2 class="slide-title">Robotics Core</h2>
+            <p class="slide-desc">Hardware Engineering / 2021</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Grid placeholder -->
+    <section class="grid-section mt-12">
+      <h3 class="grid-header">Full Index</h3>
+      <div class="project-list">
+        <div class="project-item"><span class="p-title">Data Visualization Dashboard</span><span style="color:#666">→</span></div>
+        <div class="project-item"><span class="p-title">E-Commerce Architecture</span><span style="color:#666">→</span></div>
+        <div class="project-item"><span class="p-title">Unity 3D Game Engine</span><span style="color:#666">→</span></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="portfolio.js"></script>
+</body>
+</html>

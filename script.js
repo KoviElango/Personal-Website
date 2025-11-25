@@ -18,6 +18,7 @@ const App = {
         this.initCursor();
         this.initAnimations();
         this.initMobileMenu();
+        this.initPortfolio(); 
     },
 
     initCursor() {
@@ -143,6 +144,86 @@ const App = {
                 });
             });
         }
+    },
+
+    /**
+     * Portfolio: carousel + canvas particle system
+     */
+    initPortfolio() {
+        // --- Carousel ---
+        const slides = document.querySelectorAll('.carousel-slide');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        if (slides && slides.length && nextBtn && prevBtn) {
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+            const updateCarousel = () => {
+                slides.forEach(s => s.classList.remove('active'));
+                slides[currentSlide].classList.add('active');
+            };
+            nextBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateCarousel();
+            });
+            prevBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            });
+            // autoplay
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateCarousel();
+            }, 6000);
+        }
+
+        // --- Canvas particle background ---
+        const canvas = document.getElementById('art-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const CONFIG = { particleCount: 50, connectionDist: 140, speed: 0.35, baseColor: '212, 175, 55', glowIntensity: 0.05 };
+        let particles = [], w, h;
+
+        function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * w; this.y = Math.random() * h;
+                this.vx = (Math.random() - 0.5) * CONFIG.speed; this.vy = (Math.random() - 0.5) * CONFIG.speed;
+                this.size = Math.random() * 1.6 + 0.4;
+            }
+            update() {
+                this.x += this.vx; this.y += this.vy;
+                if (this.x < 0 || this.x > w) this.vx *= -1;
+                if (this.y < 0 || this.y > h) this.vy *= -1;
+            }
+            draw() {
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${CONFIG.baseColor}, 0.7)`; ctx.fill();
+            }
+        }
+
+        function initParticles() { particles = []; for (let i = 0; i < CONFIG.particleCount; i++) particles.push(new Particle()); }
+        function animate() {
+            ctx.clearRect(0, 0, w, h);
+            for (let i = 0; i < particles.length; i++) {
+                let p = particles[i]; p.update(); p.draw();
+                for (let j = i + 1; j < particles.length; j++) {
+                    let p2 = particles[j];
+                    let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                    if (dist < CONFIG.connectionDist) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(${CONFIG.baseColor}, ${(1 - dist/CONFIG.connectionDist) * CONFIG.glowIntensity})`;
+                        ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        initParticles();
+        animate();
     }
 };
 

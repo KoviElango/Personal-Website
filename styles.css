@@ -131,3 +131,62 @@
 .font-oswald {
     font-family: 'Oswald', sans-serif;
 }
+
+/* Portfolio: canvas + carousel + grid (kept isolated to avoid interfering with existing rules) */
+#art-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Carousel container */
+.carousel-section {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 52vh;
+    border: 1px solid rgba(255,255,255,0.04);
+    overflow: hidden;
+    background: transparent;
+}
+
+/* Track & slides */
+.carousel-track { position: relative; width: 100%; height: 100%; list-style: none; padding: 0; margin: 0; }
+.carousel-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease-in-out; display:flex; align-items:center; justify-content:center; }
+.carousel-slide.active { opacity: 1; z-index: 2; }
+
+/* Slide image */
+.slide-img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.45) grayscale(80%); transition: filter 1s ease; }
+.carousel-slide.active .slide-img { filter: brightness(0.7) grayscale(20%); animation: slowZoom 10s infinite alternate; }
+
+/* Slide text overlay */
+.slide-content { position: absolute; bottom: 40px; left: 40px; z-index: 3; max-width: 520px; }
+.slide-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #fff; margin-bottom: 6px; transform: translateY(18px); opacity: 0; transition: all 0.8s ease 0.3s; }
+.slide-desc { font-size: 0.85rem; color: #d4af37; text-transform: uppercase; letter-spacing: 1.5px; transform: translateY(18px); opacity: 0; transition: all 0.8s ease 0.5s; }
+.carousel-slide.active .slide-title, .carousel-slide.active .slide-desc { transform: translateY(0); opacity: 1; }
+
+/* Buttons */
+.carousel-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
+    color: #fff; font-size: 1.25rem; width: 48px; height: 48px; cursor: pointer; z-index: 10;
+}
+.carousel-btn:hover { background: rgba(212,175,55,0.95); color: #000; border-color: rgba(212,175,55,0.95); }
+.carousel-btn.prev { left: 8px; }
+.carousel-btn.next { right: 8px; }
+
+/* slow zoom */
+@keyframes slowZoom { from { transform: scale(1); } to { transform: scale(1.06); } }
+
+/* Grid */
+.grid-section { padding-top: 30px; }
+.grid-header { border-bottom: 1px solid rgba(255,255,255,0.04); margin-bottom: 20px; padding-bottom: 10px; font-family: 'Playfair Display', serif; }
+.project-list { display: grid; grid-template-columns: 1fr; gap: 14px; }
+.project-item { display:flex; justify-content:space-between; align-items:center; padding: 18px; border: 1px solid rgba(255,255,255,0.03); background: rgba(24,24,24,0.6); transition: transform 0.25s ease, border-color 0.25s ease; }
+.project-item:hover { border-color: rgba(212,175,55,0.85); transform: translateX(8px); }
+.p-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: #fff; }
+
+/* Keep specificity low so existing design rules win if necessary */
