@@ -50,6 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let currentItem = null;
 
+    const updatePreviewPosition = (mouseX, mouseY) => {
+        const offsetX = 20;
+        const offsetY = -100;
+        imagePreviewContainer.style.left = `${mouseX + offsetX}px`;
+        imagePreviewContainer.style.top = `${mouseY + offsetY}px`;
+    };
+
     /**
      * Handle mouse enter: update image and show preview
      */
@@ -64,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         imagePreview.src = imageUrl;
 
         imagePreviewContainer.classList.add('is-visible');
+        updatePreviewPosition(event.clientX, event.clientY);
     };
 
     /**
@@ -85,9 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     const handleMouseMove = (event) => {
         if (imagePreviewContainer.classList.contains('is-visible')) {
-            const mouseY = event.clientY;
-            imagePreviewContainer.style.transform = `translate3d(0, ${mouseY - 200}px, 0) rotate3d(0, 0, 1, 0deg)`;
-            imagePreviewContainer.style.top = '0';
+            updatePreviewPosition(event.clientX, event.clientY);
         }
     };
 
